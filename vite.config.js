@@ -7,5 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/tiktok-ads-creative",
+  base: "/tiktok-ads-creative/",
 })
