@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - AdCreative Login App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            color: #1f2937;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1f2937;
+        }
+
+        main.legal-page {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .legal-page h2 {
+            font-size: 36px;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: #9ca3af;
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .legal-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .legal-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .legal-section h3 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .legal-section p {
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .legal-section ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .legal-section li {
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .legal-section strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .legal-section a {
+            color: #1f2937;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .legal-section a:hover {
+            color: #000;
+        }
+
+        .highlight-box {
+            background-color: #f9fafb;
+            border-left: 4px solid #000;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .demo-notice {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .demo-notice p {
+            margin: 0;
+            color: #92400e;
+            font-weight: 500;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1f2937;
+        }
+
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #1f2937;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+        footer p:first-child {
+            color: white;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            main.legal-page {
+                padding: 20px;
+            }
+
+            .legal-page h2 {
+                font-size: 26px;
+            }
+
+            .legal-section h3 {
+                font-size: 16px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path
+                        d="M20 35C20 35 5 25 5 15C5 10 8 7 12 7C15 7 18 9 20 12C22 9 25 7 28 7C32 7 35 10 35 15C35 25 20 35 20 35Z"
+                        fill="#FF6B9D"
+                    />
+                </svg>
+                <h1>AdCreative Login App</h1>
+            </div>
+
+            <nav>
+                <a href="index.html" style="color: #666; text-decoration: none; font-size: 14px; font-weight: 500;">Home</a>
+                <a href="privacy.html" style="color: #666; text-decoration: none; font-size: 14px; font-weight: 500;">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="legal-page">
+        <div class="container">
+            <div class="legal-content">
+                <h2>Terms of Service</h2>
+                <p class="last-updated">Last Updated: February 3, 2026</p>
+
+                <section class="legal-section">
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>
+                        By accessing or using AdCreative Login App ("the app"), you agree to
+                        be bound by these Terms of Service. If you do not agree, please
+                        do not use this application.
+                    </p>
+                </section>
+
+                <section class="legal-section highlight-box">
+                    <h3>2. Nature of This Application</h3>
+                    <p><strong>Demo and Testing Only</strong></p>
+                    <ul>
+                        <li>Educational purposes</li>
+                        <li>Testing TikTok OAuth authentication</li>
+                        <li>Ad creative template and music integration demonstration</li>
+                        <li>Demonstration of login flow and creative workflow</li>
+                    </ul>
+                    <p><strong>This is NOT a production or commercial application.</strong></p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>3. TikTok Integration</h3>
+                    <ul>
+                        <li>Used only for authentication</li>
+                        <li>No posting or content publishing on user's behalf</li>
+                        <li>No access to videos, posts, or followers</li>
+                        <li>Only basic profile info is received</li>
+                        <li>Ad creative templates and music selection features only</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h3>4. No Commercial Use</h3>
+                    <p>
+                        This app is a proof-of-concept demo only and must not be used
+                        for commercial, business, or production purposes.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>5. Ad Creative Usage</h3>
+                    <ul>
+                        <li>Templates for demonstration only</li>
+                        <li>Music integration for preview purposes</li>
+                        <li>Not intended for actual TikTok publishing</li>
+                    </ul>
+                    <p><strong>This is a development and testing tool only.</strong></p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>6. User Responsibilities</h3>
+                    <ul>
+                        <li>Use only for demo/testing</li>
+                        <li>Follow TikTok Terms of Service</li>
+                        <li>No misuse or abuse</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h3>7. Disclaimer</h3>
+                    <p>
+                        The app is provided "AS IS" with no warranties of any kind,
+                        including reliability or availability.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>8. Limitation of Liability</h3>
+                    <p>
+                        We are not liable for any damages, losses, or issues arising
+                        from use of this demo application.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>9. Modifications</h3>
+                    <p>
+                        We may update, change, or discontinue this demo at any time
+                        without notice.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>10. Third-Party Services</h3>
+                    <p>
+                        TikTok login is governed by TikTok's own policies. We are not
+                        responsible for TikTok services.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>11. Privacy</h3>
+                    <p>
+                        Please review our <a href="privacy.html">Privacy Policy</a>
+                        for details on data handling.
+                    </p>
+                </section>
+
+                <section class="legal-section">
+                    <h3>12. Age Requirement</h3>
+                    <p>
+                        You must be at least 13 years old to use this demo application.
+                    </p>
+                </section>
+
+                <div class="demo-notice">
+                    <p>
+                        <strong>⚠️ Demo Only:</strong>
+                        This application exists solely for educational and testing
+                        purposes.
+                    </p>
+                </div>
+
+                <div class="button-group">
+                    <a href="index.html" class="btn-primary" style="text-decoration: none; color: white;">Back to Home</a>
+                    <a href="privacy.html" class="btn-secondary" style="text-decoration: none; color: #1f2937;">View Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 AdCreative Login App — Demo Application</p>
+            <p style="color: #9ca3af;">
+                Created to demonstrate TikTok OAuth login and ad creative workflow
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
