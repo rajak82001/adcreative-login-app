@@ -21,7 +21,7 @@ const ConnectTikTok = () => {
         onClick={handleConnect}
         className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-200 text-lg font-medium hover:cursor-pointer"
       >
-        Connect TikTok Ads
+        Connect Ads Account
       </button>
     </div>
   );
