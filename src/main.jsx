@@ -8,7 +8,7 @@ import { HashRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <HashRouter basename="/adcreative-login-app/">
+    <HashRouter>
       <AuthProvider>
         <App />
       </AuthProvider>
