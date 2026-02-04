@@ -9,6 +9,16 @@ export default function TikTokCallback({ setGlobalError }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    localStorage.setItem("tt_access_token", "DEBUG_TOKEN");
+window.location.hash = "#/create-ad";
+
+// SUCCESS (FOR DEBUG)
+localStorage.setItem("tt_access_token", "DEBUG_TOKEN");
+window.location.hash = "#/create-ad";
+
+
+
     const params = new URLSearchParams(window.location.search);
 
     const code = params.get("code");
