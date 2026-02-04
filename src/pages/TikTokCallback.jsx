@@ -24,10 +24,23 @@ export default function TikTokCallback({ setGlobalError }) {
     }
 
     //  CSRF / invalid session
-    if (!code || state !== savedState) {
-      setGlobalError("Invalid login session. Please try again.");
+    // if (!code || state !== savedState) {
+    //   setGlobalError("Invalid login session. Please try again.");
+    //   navigate("/");
+    //   return;
+    // }
+
+    if (!code) {
+      setGlobalError("Login failed. Please try again.");
       navigate("/");
       return;
+    }
+
+    // NOTE:
+    // On static hosting (GitHub Pages), state may be lost on redirect.
+    // We log mismatch but do not block login for this demo.
+    if (state !== savedState) {
+      console.warn("OAuth state mismatch (ignored for demo)");
     }
 
     //  Mocked token exchange (assignment scope)

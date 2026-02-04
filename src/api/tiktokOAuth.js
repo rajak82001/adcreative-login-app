@@ -6,7 +6,7 @@
 
 const CLIENT_KEY = "awn2wg5bhdlljzqu";
 // const REDIRECT_URI = "https://rajak82001.github.io/adcreative-login-app/tiktok/callback/";
-const REDIRECT_URI = "https://rajak82001.github.io/auth/tiktok/callback/";
+const REDIRECT_URI = "https://rajak82001.github.io/adcreative-login-app/auth/tiktok/callback/";
 
 
 export function redirectToTikTok() {
