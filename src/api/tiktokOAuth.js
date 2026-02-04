@@ -17,7 +17,7 @@ export function redirectToTikTok() {
     "https://www.tiktok.com/v2/auth/authorize/?" +
     `client_key=${CLIENT_KEY}` +
     `&response_type=code` +
-    `&scope=ads_management,ads_read` +
+    `&scope=user.info.basic` +
     `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
     `&state=${state}`;
 
