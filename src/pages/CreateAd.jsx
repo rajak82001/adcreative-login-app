@@ -1,5 +1,19 @@
 // step - 4
 
+import { useEffect } from "react";
+
+export default function CreateAd() {
+  useEffect(() => {
+    console.log("CreateAd mounted");
+    console.log(
+      "Token:",
+      localStorage.getItem("tt_access_token")
+    );
+  }, []);
+
+  return <h2>Ad Creative Form</h2>;
+}
+
 import { useState } from "react";
 import { mapTikTokError } from "../utils/errorMapper";
 
