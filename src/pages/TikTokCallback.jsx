@@ -1,12 +1,14 @@
 // step - 3 (OAuth Callback Handler)
 
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { exchangeCodeForTokenMock } from "../api/tiktokOAuth";
 import { mapTikTokError } from "../utils/errorMapper";
+import { AuthContext } from "../context/AuthContext";
 
 export default function TikTokCallback({ setGlobalError }) {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -38,6 +40,8 @@ export default function TikTokCallback({ setGlobalError }) {
 
     // SUCCESS
     localStorage.setItem("tt_access_token", data.access_token);
+    // Update AuthContext to mark user as logged in
+    login(data.access_token);
     navigate("/create-ad");
   }, [navigate, setGlobalError]);
 
