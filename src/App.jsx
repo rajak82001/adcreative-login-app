@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+﻿import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import ConnectTikTok from "./pages/ConnectTikTok";
 import TikTokCallback from "./pages/TikTokCallback";
@@ -10,22 +10,21 @@ export default function App() {
   const [globalError, setGlobalError] = useState(null);
 
   return (
-    
-      <Layout>
-        {globalError && <ErrorBanner message={globalError} />}
+    <Layout>
+      {globalError && <ErrorBanner message={globalError} />}
 
-        <Routes>
-          <Route path="/" element={<ConnectTikTok />} />
+      <Routes>
+        <Route path="/" element={<ConnectTikTok />} />
 
-          <Route
-            path="/auth/tiktok/callback"
-            element={<TikTokCallback setGlobalError={setGlobalError} />}
-          />
+        <Route
+          path="/auth/tiktok/callback"
+          element={<TikTokCallback setGlobalError={setGlobalError} />}
+        />
 
-          <Route path="/create-ad" element={<CreateAd />} />
+        <Route path="/create-ad" element={<CreateAd />} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Layout>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Layout>
   );
 }

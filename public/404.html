@@ -1,21 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <script>
-      // GitHub Pages SPA fix for OAuth callback
+      // GitHub Pages SPA fix for OAuth callback - redirect to hash-based route
       var path = window.location.pathname;
       var search = window.location.search;
-
-      // Remove duplicate repo name if present
-      if (path.startsWith("/adcreative-login-app/adcreative-login-app")) {
-        path = path.replace(
-          "/adcreative-login-app/adcreative-login-app",
-          "/adcreative-login-app"
-        );
-      }
-
-      window.location.replace(path + search);
+      
+      // Extract the path after /adcreative-login-app/
+      var base = "/adcreative-login-app";
+      var repoPath = path.replace(base, "");
+      
+      // Redirect to hash-based route for HashRouter
+      window.location.replace(base + "/#" + repoPath + search);
     </script>
   </head>
   <body></body>
