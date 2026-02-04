@@ -1,75 +1,86 @@
-import { useContext, useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import { AuthContext } from "./context/AuthContext";
-import { exchangeCodeForToken } from "./api/auth.api";
-import ConnectTikTok from "./components/ConnectTikTok";
-import AdForm from "./components/AdForm";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+
+import Layout from "./components/Layout";
 import ErrorBanner from "./components/ErrorBanner";
 
+import Home from "./pages/ConnectTikTok"; // Home = Connect TikTok page
+import OAuthCallback from "./pages/TikTokCallback";
+import CreateAd from "./pages/CreateAd";
+
 function App() {
-  const { token, login, logout } = useContext(AuthContext);
-  const [globalError, setGlobalError] = useState("");
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-
-    if (code && !token) {
-      exchangeCodeForToken(code)
-        .then((res) => login(res.access_token))
-        .catch(() =>
-          setGlobalError("OAuth failed. Please try again.")
-        );
-    }
-  }, []);
+  const [globalError, setGlobalError] = useState(null);
 
   return (
-    <Routes>
-      <Route path="/" element={
-        <div className="min-h-screen bg-gray-100 py-8 flex flex-col">
-          <div className="container mx-auto px-4 max-w-4xl flex-1">
-            <div className="relative mb-8">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 text-center ">AdCreative Login App</h2>
-              <p className="text-center text-gray-600 text-sm mt-2">This application uses TikTok Login Kit for authentication.</p>
-              {token && (
-                <button
-                  onClick={logout}
-                  className="absolute top-0 right-0 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors hover:cursor-pointer"
-                >
-                  Logout
-                </button>
-              )}
-            </div>
+    <Layout>
+      {/* Global system-level errors (OAuth, geo, permissions, etc.) */}
+      {globalError && (
+        <ErrorBanner
+          message={globalError}
+          onClose={() => setGlobalError(null)}
+        />
+      )}
 
-            {globalError && <ErrorBanner message={globalError} />}
+      <Routes>
+        {/* Step 1: Connect TikTok */}
+        <Route path="/" element={<Home />} />
 
-            {!token ? <ConnectTikTok /> : <AdForm />}
-          </div>
+        {/* Step 2: TikTok OAuth callback */}
+        <Route
+          path="/oauth/callback"
+          element={<OAuthCallback setGlobalError={setGlobalError} />}
+        />
 
-          {/* Footer with Legal Links */}
-          <div className="mt-12 border-t border-gray-300 pt-8">
-            <div className="container mx-auto px-4 max-w-4xl text-center">
-              <p className="text-gray-600 mb-4">© 2026 AdCreative Login App</p>
-              <div className="flex justify-center gap-6 text-sm">
-                <a 
-                  href="/adcreative-login-app/privacy.html" 
-                  className="text-black hover:underline font-medium"
-                >
-                  Privacy Policy
-                </a>
-                <span className="text-gray-400">|</span>
-                <a 
-                  href="/adcreative-login-app/terms.html" 
-                  className="text-black hover:underline font-medium"
-                >
-                  Terms of Service
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      } />
-    </Routes>
+        {/* Step 3: Create Ad (after successful OAuth) */}
+        <Route path="/create-ad" element={<CreateAd />} />
+
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Layout>
+
+    // import { useContext, useEffect, useState } from "react";
+    // import { Routes, Route, Navigate } from "react-router-dom";
+    // import { AuthContext } from "./context/AuthContext";
+    // import Layout from "./components/Layout";
+    // import Home from "./pages/Home";
+    // import CreateAd from "./components/AdForm";
+    // import OAuthCallback from "./pages/TikTokCallback";
+    // import ErrorBanner from "./components/ErrorBanner";
+
+    // import ConnectTikTok from "./pages/ConnectTikTok";
+    // import TikTokCallback from "./pages/TikTokCallback";
+    // import CreateAd from "./pages/CreateAd";
+
+    // function App() {
+    //   const { token, login, logout } = useContext(AuthContext);
+    //   const [globalError, setGlobalError] = useState("");
+
+    //   useEffect(() => {
+    //     // Keep App-level side effects minimal; callback route handles token exchange.
+    //   }, []);
+
+    //   return (
+    //     <Layout>
+    //       {globalError && <ErrorBanner message={globalError} />}
+    //       <Routes>
+    //         <Route path="/" element={<Home />} />
+    //         <Route path="/oauth/callback" element={<OAuthCallback />} />
+    //         <Route path="/create-ad" element={<CreateAd />} />
+    //         <Route path="*" element={<Navigate to="/" replace />} />
+    //       </Routes>
+    //     </Layout>
+
+    // ------------------------------------------------------------------------------------------------------------------>
+    //  Step - 5
+    //  <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<ConnectTikTok />} />
+    //     <Route path="/tiktok/callback" element={<TikTokCallback />} />
+    //     <Route path="/create-ad" element={<CreateAd />} />
+    //   </Routes>
+    // </BrowserRouter>
+    // ------------------------------------------------------------------------------------------------------------------>
   );
 }
 
