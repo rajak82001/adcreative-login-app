@@ -12,6 +12,7 @@
       var repoPath = path.replace(base, "");
       
       // Redirect to hash-based route for HashRouter
+      // IMPORTANT: Query params must go INSIDE the hash for HashRouter to see them
       window.location.replace(base + "/#" + repoPath + search);
     </script>
   </head>
