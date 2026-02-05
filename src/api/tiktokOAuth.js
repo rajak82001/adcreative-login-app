@@ -1,9 +1,5 @@
 // step-1
 
-// NOTE:
-// Backend not required per assignment.
-// Token exchange is mocked to demonstrate OAuth flow & thinking.
-
 const CLIENT_KEY = "awn2wg5bhdlljzqu";
 // const REDIRECT_URI = "https://rajak82001.github.io/adcreative-login-app/tiktok/callback/";
 const REDIRECT_URI = "https://rajak82001.github.io/adcreative-login-app/auth/tiktok/callback/";
@@ -32,6 +28,7 @@ export function exchangeCodeForTokenMock(code) {
 
   return {
     access_token: "mock_access_token_123",
-    expires_in: 86400
+    // expires_in: 86400
+    expires_in: 86400 // 1 day
   };
 }

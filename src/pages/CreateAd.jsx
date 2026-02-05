@@ -17,7 +17,7 @@ export default function CreateAd() {
   const { logout } = useContext(AuthContext);
 
   function handleLogout() {
-    localStorage.removeItem("tt_access_token");
+    // Clear app auth token and OAuth state tokens
     localStorage.removeItem("token");
     localStorage.removeItem("tt_state");
     localStorage.removeItem("tiktok_oauth_state");

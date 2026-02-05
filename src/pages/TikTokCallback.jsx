@@ -1,12 +1,14 @@
 ﻿// step - 3 (OAuth Callback Handler)
 
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { exchangeCodeForTokenMock } from "../api/tiktokOAuth";
 import { mapTikTokError } from "../utils/errorMapper";
+import { AuthContext } from "../context/AuthContext";
 
 export default function TikTokCallback({ setGlobalError }) {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   useEffect(() => {
     // For HashRouter on GitHub Pages, query params are in the hash
@@ -58,7 +60,9 @@ export default function TikTokCallback({ setGlobalError }) {
     }
 
     // SUCCESS
-    localStorage.setItem("tt_access_token", data.access_token);
+    // inform auth context and pass expiry (if provided)
+    login(data.access_token, data.expires_in);
+    // navigation will be handled after context update; navigate now to ensure route
     navigate("/create-ad");
   }, [navigate, setGlobalError]);
 
